@@ -76,7 +76,9 @@ namespace BatchImageGrayscale
                 for (int x = 0; x < bitmap.Width; x++)
                 {
                     Color pixelColor = bitmap.GetPixel(x, y);
-                    Color grayColor = Color.FromArgb(pixelColor.R, pixelColor.R, pixelColor.R);
+                    // Grayscale matrix
+                    int grayScale = (int)((pixelColor.R * 0.3) + (pixelColor.G * 0.59) + (pixelColor.B * 0.11));
+                    Color grayColor = Color.FromArgb(pixelColor.A, grayScale, grayScale, grayScale);
                     grayBitmap.SetPixel(x, y, grayColor);
                 }
             }
